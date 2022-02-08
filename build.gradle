@@ -33,6 +33,7 @@ dependencies {
 }
 
 test {
+    ignoreFailures = true
     useJUnitPlatform()
 }
 allure {
