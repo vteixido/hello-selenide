@@ -3,7 +3,7 @@ plugins {
     id 'io.qameta.allure' version '2.9.3'
 }
 
-group 'com.sinensia'
+group 'com.gft'
 version '1.0-SNAPSHOT'
 
 repositories {
@@ -30,10 +30,14 @@ dependencies {
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+
+    testImplementation("io.cucumber:cucumber-java:7.2.3")
+    testImplementation("io.cucumber:cucumber-junit:7.2.3")
+    testImplementation("org.junit.vintage:junit-vintage-engine:${junitVersion}")
+    testImplementation("io.qameta.allure:allure-cucumber4-jvm:${allureVersion}")
 }
 
 test {
-    ignoreFailures = true
     useJUnitPlatform()
 }
 allure {
