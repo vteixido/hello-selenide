@@ -17,7 +17,6 @@ import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ImdbTest {
-    MainPage mainPage = new MainPage();
 
     @BeforeAll
     public static void setUpAll() {
