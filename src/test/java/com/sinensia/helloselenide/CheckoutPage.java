@@ -7,25 +7,15 @@ import static com.codeborne.selenide.Selenide.*;
 
 // about:blank
 public class CheckoutPage {
-    private SelenideElement btnOrder = $(".btn-success");
-
-    private SelenideElement ageInput = $("#ageInput" );
-
-    public OrderPage order() {
-        btnOrder.click();
-        return page(OrderPage.class);
-    }
+    private SelenideElement btnConfirm = $(".btn-success");
+    SelenideElement fldAge = $("#ageInput");
 
     public void setAge(String age) {
-        ageInput.sendKeys(age);
+        fldAge.sendKeys(age);
     }
 
-    public String getAge() {
-        return ageInput.getText();
+    public OrderPage confirm() {
+        btnConfirm.click();
+        return page(OrderPage.class);
     }
-
-    public SelenideElement ageInput() {
-        return ageInput;
-    }
-
 }

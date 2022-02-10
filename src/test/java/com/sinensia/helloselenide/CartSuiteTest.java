@@ -8,35 +8,34 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class CartSuiteTest {
-    CartPage cartPage =  new CartPage();
+    CartPage cartPage = new CartPage();
 
     @BeforeAll
     public static void setUpAll() {
         Configuration.browserSize = "1280x800";
-        SelenideLogger.addListener("allure", new AllureSelenide());
+        SelenideLogger.addListener("allure", new AllureSelenide().screenshots(true).savePageSource(false));
     }
 
     @BeforeEach
     public void setUp() {
-        open("http://localhost:3000/");
+        open("http://localhost:3000");
+    }
+
+    @Test
+    public void startTest() {
+        cartPage.checkoutButton().shouldBe(disabled);
     }
 
     @Test
     public void colaTest() {
-        cartPage.btnCheckout().shouldBe(disabled);
+        cartPage.checkoutButton().shouldBe(disabled);
         cartPage.addCola();
-        cartPage.btnCheckout().shouldBe(enabled);
         cartPage.total().shouldBe(text("€1.25"));
-    }
-
-    @Test
-    public void ageTest() {
-        cartPage.addBeer();
-        CheckoutPage checkoutPage = cartPage.checkout();
-        checkoutPage.ageInput().shouldBe(enabled);
+        cartPage.addCola();
+        cartPage.total().shouldBe(text("€2.50"));
+        cartPage.checkoutButton().shouldBe(enabled);
     }
 }
