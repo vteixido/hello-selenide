@@ -6,6 +6,8 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import com.sinensia.helloselenide.CartPage;
 import com.sinensia.helloselenide.CheckoutPage;
 import com.sinensia.helloselenide.OrderPage;
+import io.cucumber.java.PendingException;
+import io.cucumber.java.en.But;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -21,6 +23,7 @@ public class RobobarStepDefinitions {
     private OrderPage orderPage;
 
     @Given("user opens robobar website")
+    @Given("l'usuari entra al bar")
     public void openRobobar() {
         Configuration.browserSize = "1280x800";
         SelenideLogger.addListener("allure", new AllureSelenide()
@@ -32,6 +35,7 @@ public class RobobarStepDefinitions {
     }
 
     @When("user adds a cola")
+    @When("l'usuari afegeix una cocacola")
     public void userAddsaCola() {
         cartPage.addCola();
     }
@@ -42,6 +46,7 @@ public class RobobarStepDefinitions {
     }
 
     @Then("total should be €{double}")
+    @Then("el total ha de ser {double}€")
     public void totalShouldBeDouble(Double total) {
         cartPage.total().shouldBe(exactText(String.format("€%.2f", total)));
     }
@@ -111,6 +116,18 @@ public class RobobarStepDefinitions {
         userAddsCola(cola);
         userAddsNBeers(beer);
         userAddsNWines(wine);
+    }
+
+    @Given("user is ready to check out with alcohol")
+    public void userIsReadyToCheckOutWithAlcohol() {
+        openRobobar();
+        userAddsABeer();
+        userChecksOut();
+    }
+
+    @But("checkout result is {string}")
+    public void checkoutResultIsExpected(String expected) {
+        throw new PendingException();
     }
 }
 
