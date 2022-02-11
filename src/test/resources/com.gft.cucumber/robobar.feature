@@ -7,5 +7,5 @@ Feature: Robobar cart
     Given user opens robobar website
     When user adds a cola
     And user adds a cola
-    Then total should be €2.50
+    Then total should be "€2.50"
 
