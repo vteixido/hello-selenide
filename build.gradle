@@ -40,6 +40,8 @@ dependencies {
 }
 
 test {
+    systemProperties["selenide.remote"]="http://localhost:4444/wd/hub";
+    systemProperties["selenide.browser"]="firefox";
     ignoreFailures = true
     useJUnitPlatform()
 }

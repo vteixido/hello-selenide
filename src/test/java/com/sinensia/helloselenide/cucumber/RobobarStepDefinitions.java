@@ -30,7 +30,7 @@ public class RobobarStepDefinitions {
                 .screenshots(true)
                 .savePageSource(false)
         );
-        open("http://localhost:3000/");
+        open("https://robobar.sinensia.pw");
         checkoutPage = null;
     }
 
