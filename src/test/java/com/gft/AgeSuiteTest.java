@@ -23,7 +23,7 @@ public class AgeSuiteTest {
 
     @BeforeEach
     public void setUp() {
-        open("https://robobar.sinensia.pw");
+        open("/");
     }
 
     @Test

@@ -13,7 +13,7 @@ public class RobobarStepDefinitions {
 
     @Given("user opens robobar website")
     public void userOpensRobobarWebsite() {
-        open("http://localhost:3000");
+        open("/");
     }
 
     @When("user adds a cola")
