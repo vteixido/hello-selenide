@@ -3,7 +3,7 @@ plugins {
     id 'io.qameta.allure' version '2.9.3'
 }
 
-group 'com.gft'
+group 'com.sinensia'
 version '1.0-SNAPSHOT'
 
 repositories {
