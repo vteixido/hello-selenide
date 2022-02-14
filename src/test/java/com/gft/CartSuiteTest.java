@@ -21,7 +21,7 @@ public class CartSuiteTest {
 
     @BeforeEach
     public void setUp() {
-        open("http://localhost:3000/");
+        open("https://robobar.sinensia.pw");
     }
 
     @Test
