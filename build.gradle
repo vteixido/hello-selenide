@@ -40,10 +40,11 @@ dependencies {
 }
 
 test {
-    systemProperties["selenide.baseUrl"]="https://robobar.sinensia.pw"
+    systemProperties["selenide.baseUrl"]="http://10.250.3.2:3000"
     systemProperties["selenide.remote"]="http://localhost:4444/wd/hub"
-    systemProperties["selenide.browser"]="chrome"
+    systemProperties["selenide.browser"]="edge"
     systemProperties["selenide.browserVersion"]="97.0"
+    systemProperties["selenide.browserSide"]="600x800"
     ignoreFailures = true
     useJUnitPlatform()
 }
