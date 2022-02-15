@@ -8,19 +8,11 @@ pipeline {
             }
         }
         stage('Test') {
-            parallel {
-                stage('test: chrome') {
-                    steps {
-                        sh "./gradlew test"
-                    }
-                }
-                stage("test:firefox") {
-                    steps{
-                        sh "./gradlew testFirefox"
-                    }
-                }
+            steps {
+               sh "./gradlew test"
+               sh "./gradlew testFirefox"
+             }
 
-            }
             post {
                 always {
                     junit 'build/test-results/test/*xml'
