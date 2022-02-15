@@ -19,22 +19,7 @@ pipeline {
                         sh "./gradlew testFirefox"
                     }
                 }
-                stage("test:firefox95") {
-                    steps{
-                        sh "./gradlew testFirefox95"
-                    }
-                }
 
-                stage("test:testEdge") {
-                    steps{
-                        sh "./gradlew testEdge"
-                    }
-                }
-                stage("test:testOpera") {
-                    steps{
-                        sh "./gradlew testOpera"
-                    }
-                }
             }
             post {
                 always {
