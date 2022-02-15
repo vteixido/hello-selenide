@@ -21,6 +21,8 @@ public class CartSuiteTest {
 
         DesiredCapabilities capabilites = new DesiredCapabilities();
         capabilites.setCapability("enableVNC", true);
+        capabilites.setCapability("enableVideo", true);
+
         Configuration.browserCapabilities = capabilites;
     }
 
