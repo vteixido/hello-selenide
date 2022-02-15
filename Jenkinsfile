@@ -2,9 +2,39 @@ pipeline {
     agent any
 
     stages {
-        stage('Test') {
+        stage('Clean') {
             steps {
-                sh " ./gradlew clean test check "
+                sh " ./gradlew clean "
+            }
+        }
+        stage('Test') {
+            parallel {
+                stage('test: chrome') {
+                    steps {
+                        sh "./gradlew test"
+                    }
+                }
+                stage("test:firefox") {
+                    steps{
+                        sh "./gradlew testFirefox"
+                    }
+                }
+                stage("test:firefox95") {
+                    steps{
+                        sh "./gradlew testFirefox95"
+                    }
+                }
+
+                stage("test:testEdge") {
+                    steps{
+                        sh "./gradlew testEdge"
+                    }
+                }
+                stage("test:testOpera") {
+                    steps{
+                        sh "./gradlew testOpera"
+                    }
+                }
             }
             post {
                 always {
